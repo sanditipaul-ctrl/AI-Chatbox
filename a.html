@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbox</title>
+
+    <style>
+        body {
+            background: linear-gradient(-45deg, #00f2fe, #fbc2eb);
+            background-attachment: fixed;
+            margin-top: 100px;
+            font-family: Arial, sans-serif;
+        }
+
+        .fullbody {
+            background-color: #d3c0ff;
+            width: 420px;
+            border-radius: 10px;
+            margin: 0 auto;
+            padding: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            padding-top: 15px;
+            color: #58000f;
+        }
+
+        #messages {
+            height: 320px;
+            background-color: white;
+            border-radius: 10px;
+            overflow-y: auto;
+            text-align: left;
+            margin-bottom: 15px;
+            padding: 10px;
+        }
+
+        input {
+            width: 260px;
+            padding: 10px;
+            border-radius: 8px;
+            border: 2px solid rgb(0, 72, 134);
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            background-color: rgb(77, 172, 254);
+            border-radius: 9px;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="fullbody">
+        <center>
+            <h2>Chatbox 💬</h2>
+        </center>
+
+        <div id="messages"></div>
+
+        <input id="userInput" type="text" placeholder="Type something...">
+
+        <button>Send</button>
+    </div>
+</body>
+</html>
