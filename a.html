@@ -41,6 +41,7 @@
             width: 260px;
             padding: 10px;
             border-radius: 8px;
+            outline: none;
             border: 2px solid rgb(0, 72, 134);
             font-size: 16px;
         }
@@ -54,20 +55,55 @@
             border-radius: 9px;
             color: white;
         }
+
+        .user {
+            color: #ff3355;
+            font-size: 16px;
+            padding: 5px;
+            text-align: right;
+        }
     </style>
 </head>
 
 <body>
-    <div class="fullbody">
-        <center>
+    <center>
+        <div class="fullbody">
             <h2>Chatbox 💬</h2>
-        </center>
 
-        <div id="messages"></div>
+            <div id="messages"></div>
 
-        <input id="userInput" type="text" placeholder="Type something...">
+            <div>
+                <input id="userInput" type="text" placeholder="Type something...">
 
-        <button>Send</button>
-    </div>
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </center>
+
+    <script>
+        var messages = document.getElementById("messages");
+        var userInput = document.getElementById("userInput");
+
+        function ShowMessage(text, type) {
+            var msg = document.createElement("div");
+
+            msg.className = type;
+            msg.innerText = text;
+
+            messages.appendChild(msg);
+            messages.scrollTop = messages.scrollHeight;
+        }
+
+        function sendMessage() {
+            var text = userInput.value.trim();
+
+            if (text === "") {
+                return;
+            }
+
+            ShowMessage("You: " + text, "user");
+            userInput.value = "";
+        }
+    </script>
 </body>
 </html>
