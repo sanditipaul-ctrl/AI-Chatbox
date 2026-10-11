@@ -102,7 +102,7 @@
             messages.scrollTop = messages.scrollHeight;
         }
 
-        // Send user message and receive bot reply
+        // Send message
         function sendMessage() {
             var text = userInput.value.trim();
 
@@ -120,7 +120,14 @@
             }, 1000);
         }
 
-        // Generate automatic bot replies
+        // Send message by pressing Enter
+        userInput.addEventListener("keypress", function(e) {
+            if (e.key === "Enter") {
+                sendMessage();
+            }
+        });
+
+        // Generate bot replies
         function gotReply(msg) {
             if (msg.includes("hi") || msg.includes("hello")) {
                 return "Hi there! How can I help you?";
