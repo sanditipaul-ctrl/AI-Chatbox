@@ -62,6 +62,12 @@
             padding: 5px;
             text-align: right;
         }
+
+        .bot {
+            color: #005327;
+            font-size: 16px;
+            padding: 5px;
+        }
     </style>
 </head>
 
@@ -73,7 +79,8 @@
             <div id="messages"></div>
 
             <div>
-                <input id="userInput" type="text" placeholder="Type something...">
+                <input id="userInput" type="text"
+                       placeholder="Type something...">
 
                 <button onclick="sendMessage()">Send</button>
             </div>
@@ -84,6 +91,7 @@
         var messages = document.getElementById("messages");
         var userInput = document.getElementById("userInput");
 
+        // Display messages
         function ShowMessage(text, type) {
             var msg = document.createElement("div");
 
@@ -94,6 +102,7 @@
             messages.scrollTop = messages.scrollHeight;
         }
 
+        // Send user message and receive bot reply
         function sendMessage() {
             var text = userInput.value.trim();
 
@@ -103,6 +112,45 @@
 
             ShowMessage("You: " + text, "user");
             userInput.value = "";
+
+            setTimeout(function() {
+                var botReply = gotReply(text.toLowerCase());
+
+                ShowMessage("Bot: " + botReply, "bot");
+            }, 1000);
+        }
+
+        // Generate automatic bot replies
+        function gotReply(msg) {
+            if (msg.includes("hi") || msg.includes("hello")) {
+                return "Hi there! How can I help you?";
+            }
+
+            if (msg.includes("bye")) {
+                return "Goodbye! Have a nice day!";
+            }
+
+            if (msg.includes("your name")) {
+                return "I'm your Chatbox.";
+            }
+
+            if (msg.includes("how are you")) {
+                return "I'm just a bot, but I'm feeling awesome!";
+            }
+
+            if (msg.includes("what is html")) {
+                return "HTML is used to create the structure of web pages.";
+            }
+
+            if (msg.includes("what is coding")) {
+                return "Coding is writing instructions for computers.";
+            }
+
+            if (msg.includes("what is photosynthesis")) {
+                return "Photosynthesis is how plants make food using sunlight.";
+            }
+
+            return "Sorry, I didn't catch that.";
         }
     </script>
 </body>
