@@ -20,6 +20,12 @@
             margin: 0 auto;
             padding: 10px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .fullbody:hover {
+            transform: scale(1.02) translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         }
 
         h2 {
@@ -35,6 +41,7 @@
             text-align: left;
             margin-bottom: 15px;
             padding: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
         input {
@@ -54,6 +61,12 @@
             background-color: rgb(77, 172, 254);
             border-radius: 9px;
             color: white;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            transform: scale(1.02) translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         }
 
         .user {
@@ -120,7 +133,7 @@
             }, 1000);
         }
 
-        // Send message by pressing Enter
+        // Send message using Enter
         userInput.addEventListener("keypress", function(e) {
             if (e.key === "Enter") {
                 sendMessage();
